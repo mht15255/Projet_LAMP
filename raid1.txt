@@ -1,5 +1,5 @@
 
-Création d'un raid 1 pour le systeme d'exploitation avec vmware
+CrÃ©ation d'un raid 1 pour le systeme d'exploitation avec vmware
 - create new virtual machine
 - custom>next...
 - choisir d'installer l'os plus tard>next...
@@ -8,7 +8,7 @@ Création d'un raid 1 pour le systeme d'exploitation avec vmware
 - processeur 2, core 2>next...
 - RAM 6go>next...
 - bridge>next...
-- capacité du disque 20go>next...finish
+- capacitÃ© du disque 20go>next...finish
 
 pour ajouter un disque
 setting>hard disk>add>next...>20go
@@ -19,39 +19,41 @@ setting>cd/dvd>use ISO image file
 lancement de la machine : 
 - power on
 - install centos
-- français
+- franÃ§ais
 
 
 
-écran installation de centos:
+Ã©cran configuration de centos (voir les captures d'Ã©cran) :
 
 destination de l'installation :
-- sélectionner les deux disques
-- configurer le partitionnement
+- sÃ©lectionner les deux disques
+
+partitionnement manuel :
 - ajouter un nouveau point de montage (+)
 	/boot 	1gb
 	/ 	16gb
 	/home 	6gb
 	/swap 	3gb
 pour tous:
-type de périph
+type de pÃ©riph
 raid 1
 sytm fichier xfs sauf pour swap
-- terminé
-- accepter modif
+>terminÃ©
+>accepter modif
 
 selection de logiciel (pour l'installation de l'interface graphique)
-- environnement de base : bureau µGNOME
+- environnement de base : bureau ÂµGNOME
 - selection de tous lesmodules
-- terminé
+- terminÃ©
 
->démarrer
+>dÃ©marrer l'installation
 
+parametre utilisateur : mot de passe admin
+crÃ©ation utilisateur : prestataire cangetin
 
-écran configuration
-parametre utilisateur>mot de passe admin
-création utilisateur>prestataire cangetin
+>terminÃ©
 
+>info licence (1, 2, c, c)
 
 
 
