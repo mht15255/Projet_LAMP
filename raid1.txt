@@ -1,0 +1,73 @@
+
+Création d'un raid 1 pour le systeme d'exploitation avec vmware
+- create new virtual machine
+- custom>next...
+- choisir d'installer l'os plus tard>next...
+- linux CentOS 64bit>next
+- nom projet final, sur S:>next...
+- processeur 2, core 2>next...
+- RAM 6go>next...
+- bridge>next...
+- capacité du disque 20go>next...finish
+
+pour ajouter un disque
+setting>hard disk>add>next...>20go
+
+renseigner l'iso
+setting>cd/dvd>use ISO image file
+
+lancement de la machine : 
+- power on
+- install centos
+- français
+
+
+
+écran installation de centos:
+
+destination de l'installation :
+- sélectionner les deux disques
+- configurer le partitionnement
+- ajouter un nouveau point de montage (+)
+	/boot 	1gb
+	/ 	16gb
+	/home 	6gb
+	/swap 	3gb
+pour tous:
+type de périph
+raid 1
+sytm fichier xfs sauf pour swap
+- terminé
+- accepter modif
+
+selection de logiciel (pour l'installation de l'interface graphique)
+- environnement de base : bureau µGNOME
+- selection de tous lesmodules
+- terminé
+
+>démarrer
+
+
+écran configuration
+parametre utilisateur>mot de passe admin
+création utilisateur>prestataire cangetin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
