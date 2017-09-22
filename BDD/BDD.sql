@@ -4,7 +4,7 @@
 DROP DATABASE IF EXISTS libautodb;
 
 CREATE DATABASE libautodb
-     DEFAULT CHARACTER SET utf-8;
+     DEFAULT CHARACTER SET utf8;
 	  
 USE libautodb;
 
