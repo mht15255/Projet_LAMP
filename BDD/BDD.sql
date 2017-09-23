@@ -13,98 +13,113 @@ USE libautodb;
 # Table: TICKET_NA
 #------------------------------------------------------------
 
-CREATE TABLE TICKET_NA(
-        ID_NA  int (11) Auto_increment  NOT NULL ,
-        DATE_E Datetime NOT NULL ,
-        DATE_S Datetime NOT NULL ,
-        ID_PAY Int NOT NULL ,
-        ID_VEH Int ,
-        PRIMARY KEY (ID_NA )
-)ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS `ticket_na` (
+  `ID_NA` int(11) NOT NULL AUTO_INCREMENT,
+  `DATE_E` datetime NOT NULL,
+  `DATE_S` datetime DEFAULT NULL,
+  `ID_ES_E` int(11) NOT NULL,
+  `ID_ES_S` int(11) DEFAULT NULL,
+  `ID_PAY` int(11) NOT NULL,
+  `ID_VEH` int(11) NOT NULL,
+  PRIMARY KEY (`ID_NA`),
+  KEY `FK_TICKET_NA_ID_ES_E` (`ID_ES_E`),
+  KEY `FK_TICKET_NA_ID_ES_S` (`ID_ES_S`),
+  KEY `FK_TICKET_NA_ID_PAY` (`ID_PAY`),
+  KEY `FK_TICKET_NA_ID_VEH` (`ID_VEH`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3;
 
 
 #------------------------------------------------------------
 # Table: VEHICULE
 #------------------------------------------------------------
 
-CREATE TABLE VEHICULE(
-        ID_VEH   int (11) Auto_increment  NOT NULL ,
-        TYPE_VEH Varchar (25) ,
-        PRIMARY KEY (ID_VEH )
-)ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS `vehicule` (
+  `ID_VEH` int(11) NOT NULL AUTO_INCREMENT,
+  `TYPE_VEH` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`ID_VEH`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 
 #------------------------------------------------------------
 # Table: ES
 #------------------------------------------------------------
 
-CREATE TABLE ES(
-        NOM             Varchar (50) ,
-        ID_ES           Numeric NOT NULL ,
-        DIST_TRON       Float NOT NULL ,
-        ID_TP           Int ,
-        ID_TP_TICKET_TP Int ,
-        PRIMARY KEY (ID_ES )
-)ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS `es` (
+  `NOM` varchar(50) DEFAULT NULL,
+  `ID_ES` int(11) NOT NULL AUTO_INCREMENT,
+  `DIST_TRON` float NOT NULL,
+  PRIMARY KEY (`ID_ES`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 
 #------------------------------------------------------------
 # Table: TICKET_TP
 #------------------------------------------------------------
 
-CREATE TABLE TICKET_TP(
-        ID_TP    int (11) Auto_increment  NOT NULL ,
-        DATE_E   Datetime NOT NULL ,
-        DATE_S   Datetime ,
-        NB_BADGE Int NOT NULL ,
-        ID_VEH   Int ,
-        PRIMARY KEY (ID_TP )
-)ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS `ticket_tp` (
+  `ID_TP` int(11) NOT NULL AUTO_INCREMENT,
+  `DATE_E` datetime NOT NULL,
+  `DATE_S` datetime DEFAULT NULL,
+  `ID_ES_E` int(11) NOT NULL,
+  `ID_ES_S` int(11) DEFAULT NULL,
+  `NB_BADGE` int(11) NOT NULL,
+  `ID_VEH` int(11) NOT NULL,
+  PRIMARY KEY (`ID_TP`),
+  KEY `FK_TICKET_TP_NB_BADGE` (`NB_BADGE`),
+  KEY `FK_TICKET_TP_ID_VEH` (`ID_VEH`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3;
 
 
 #------------------------------------------------------------
 # Table: ABONNE_TP
 #------------------------------------------------------------
 
-CREATE TABLE ABONNE_TP(
-        NOM      Varchar (50) ,
-        NB_BADGE int (11) Auto_increment  NOT NULL ,
-        PRENOM   Varchar (50) ,
-        EMAIL    Varchar (50) ,
-        PASS     Varchar (50) NOT NULL ,
-        ADRESSE  Varchar (250) ,
-        IBAN     Varchar (25) ,
-        PRIMARY KEY (NB_BADGE )
-)ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS `abonne_tp` (
+  `NOM` varchar(50) DEFAULT NULL,
+  `NB_BADGE` int(11) NOT NULL AUTO_INCREMENT,
+  `PRENOM` varchar(50) DEFAULT NULL,
+  `EMAIL` varchar(50) DEFAULT NULL,
+  `PASS` varchar(50) NOT NULL,
+  `ADRESSE` varchar(250) DEFAULT NULL,
+  `IBAN` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`NB_BADGE`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 
 #------------------------------------------------------------
 # Table: TYPE_PAY
 #------------------------------------------------------------
 
-CREATE TABLE TYPE_PAY(
-        ID_PAY int (11) Auto_increment  NOT NULL ,
-        NOM    Varchar (50) ,
-        PRIMARY KEY (ID_PAY )
-)ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS `type_pay` (
+  `ID_PAY` int(11) NOT NULL AUTO_INCREMENT,
+  `NOM` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`ID_PAY`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 
 #------------------------------------------------------------
 # Table: TRONC
 #------------------------------------------------------------
 
-CREATE TABLE TRONC(
-        prix   Float NOT NULL ,
-        ID_VEH Int NOT NULL ,
-        ID_ES  Numeric NOT NULL ,
-        PRIMARY KEY (ID_VEH ,ID_ES )
-)ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS `tronc` (
+  `prix` float NOT NULL,
+  `ID_VEH` int(11) NOT NULL,
+  `ID_ES` int(11) NOT NULL,
+  PRIMARY KEY (`ID_VEH`,`ID_ES`),
+  KEY `FK_TRONC_ID_ES` (`ID_ES`),
+  KEY `FK_TRONC_ID_VEH` (`ID_VEH`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-ALTER TABLE TICKET_NA ADD CONSTRAINT FK_TICKET_NA_ID_PAY FOREIGN KEY (ID_PAY) REFERENCES TYPE_PAY(ID_PAY);
-ALTER TABLE TICKET_NA ADD CONSTRAINT FK_TICKET_NA_ID_VEH FOREIGN KEY (ID_VEH) REFERENCES VEHICULE(ID_VEH);
-ALTER TABLE ES ADD CONSTRAINT FK_ES_ID_TP FOREIGN KEY (ID_TP) REFERENCES TICKET_TP(ID_TP);
-ALTER TABLE ES ADD CONSTRAINT FK_ES_ID_TP_TICKET_TP FOREIGN KEY (ID_TP_TICKET_TP) REFERENCES TICKET_TP(ID_TP);
-ALTER TABLE TICKET_TP ADD CONSTRAINT FK_TICKET_TP_NB_BADGE FOREIGN KEY (NB_BADGE) REFERENCES ABONNE_TP(NB_BADGE);
-ALTER TABLE TICKET_TP ADD CONSTRAINT FK_TICKET_TP_ID_VEH FOREIGN KEY (ID_VEH) REFERENCES VEHICULE(ID_VEH);
-ALTER TABLE TRONC ADD CONSTRAINT FK_TRONC_ID_VEH FOREIGN KEY (ID_VEH) REFERENCES VEHICULE(ID_VEH);
-ALTER TABLE TRONC ADD CONSTRAINT FK_TRONC_ID_ES FOREIGN KEY (ID_ES) REFERENCES ES(ID_ES);
+ALTER TABLE `ticket_na`
+  ADD CONSTRAINT `FK_TICKET_NA_ID_VEH` FOREIGN KEY (`ID_VEH`) REFERENCES `vehicule` (`ID_VEH`),
+  ADD CONSTRAINT `FK_TICKET_NA_ID_ES_E` FOREIGN KEY (`ID_ES_E`) REFERENCES `es` (`ID_ES`),
+  ADD CONSTRAINT `FK_TICKET_NA_ID_ES_S` FOREIGN KEY (`ID_ES_S`) REFERENCES `es` (`ID_ES`),
+  ADD CONSTRAINT `FK_TICKET_NA_ID_PAY` FOREIGN KEY (`ID_PAY`) REFERENCES `type_pay` (`ID_PAY`);
+ALTER TABLE `ticket_tp`
+  ADD CONSTRAINT `FK_TICKET_TP_ID_VEH` FOREIGN KEY (`ID_VEH`) REFERENCES `vehicule` (`ID_VEH`),
+  ADD CONSTRAINT `FK_TICKET_TP_NB_BADGE` FOREIGN KEY (`NB_BADGE`) REFERENCES `abonne_tp` (`NB_BADGE`),
+  ADD CONSTRAINT `FK_TICKET_TP_ID_ES_E` FOREIGN KEY (`ID_ES_E`) REFERENCES `es` (`ID_ES`),
+  ADD CONSTRAINT `FK_TICKET_TP_ID_ES_S` FOREIGN KEY (`ID_ES_S`) REFERENCES `es` (`ID_ES`);
+ALTER TABLE `tronc`
+  ADD CONSTRAINT `FK_TRONC_ID_ES` FOREIGN KEY (`ID_ES`) REFERENCES `es` (`ID_ES`),
+  ADD CONSTRAINT `FK_TRONC_ID_VEH` FOREIGN KEY (`ID_VEH`) REFERENCES `vehicule` (`ID_VEH`);
