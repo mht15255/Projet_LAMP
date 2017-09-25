@@ -33,7 +33,7 @@ partitionnement manuel :
 	/boot 	1gb
 	/ 	16gb
 	/home 	6gb
-	swap 	3gb
+	swap 	2gb
 pour tous:
 type de périph
 raid 1
