@@ -6,5 +6,5 @@ CREATE TABLE IF NOT EXISTS `gestionnaire` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `gestionnaire` (`NOM`, `PASS`) VALUES
-('Consessionnaire', 'con'),
-('prestataire', 'prestataire');
+('Consessionnaire', 'password'),
+('prestataire', 'password');
