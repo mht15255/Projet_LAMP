@@ -1,0 +1,10 @@
+use libautodb;
+CREATE TABLE IF NOT EXISTS `gestionnaire` (
+  `NOM` varchar(50) NOT NULL DEFAULT '',
+  `PASS` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`NOM`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `gestionnaire` (`NOM`, `PASS`) VALUES
+('Consessionnaire', 'con'),
+('prestataire', 'prestataire');
