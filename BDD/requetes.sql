@@ -1,4 +1,5 @@
 
+
 create or replace view dist_TP as
 SELECT t.ID_TP as ID_TP, t.DATE_E,t.DATE_S, e.NOM as nom_e, s.NOM as nom_s, sum( d.DIST_TRON ) as distance,t.NB_BADGE as nb_badge
 FROM ticket_tp t
@@ -18,7 +19,7 @@ GROUP BY t.ID_TP;
 
 
 create or replace view facture_TP as
-select t1.DATE_E,t1.DATE_S, t1.nom_e, t1.nom_s, t1.distance DISTANCE, t2.prix as PRIX,t1.nb_badge as NB_BADGE
+select t1.ID_TP,t1.DATE_E,t1.DATE_S, t1.nom_e, t1.nom_s, t1.distance DISTANCE, t2.prix as PRIX,t1.nb_badge as NB_BADGE
 from dist_TP t1
 join prix_TP t2 on t1.ID_TP = t2.ID_TP;
 
@@ -57,7 +58,7 @@ JOIN type_pay p ON ( f.ID_PAY = p.ID_PAY );
 
 create or replace view trajet_TP as
 SELECT f.DATE_E DATE_E, f.DATE_S DATE_S, f.NOM_E NOM_E, f.NOM_S NOM_S, f.DISTANCE DISTANCE, f.PRIX PRIX, 'Télépéage' PAY
-FROM facture_NA f;
+FROM facture_TP f;
 
 create or replace view facture as
 SELECT DATE_E, DATE_S, NOM_E NOM_E,NOM_S, DISTANCE, PRIX
