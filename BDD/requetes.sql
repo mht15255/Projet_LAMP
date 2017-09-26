@@ -74,18 +74,18 @@ SELECT * from trajet_TP;
 
 
 
-create or replace view traffic_mois_heur as select MONTH(DATE_E) as MONTH_VAL, HOUR(DATE_E) as HOUR_VAL, count(*) as compte from facture
+create or replace view traffic_mois_heur as select MONTH(DATE_E) as MONTH_VAL, HOUR(DATE_E) as HOUR_VAL, count(*) as COMPTE from facture
 group by HOUR_VAL;
 
 
-create or replace view traffic_heur_aut as select HOUR(DATE_E) as HOUR_VAL, count(*) as compte from facture
+create or replace view traffic_heur_aut as select HOUR(DATE_E) as HOUR_VAL, count(*) as COMPTE from facture
 group by HOUR(DATE_E);
 
 
-create or replace view traffic_heur as select HOUR_VAL, sum(compte) as compte from traffic_mois_heur
+create or replace view traffic_heur as select HOUR_VAL, sum(COMPTE) as COMPTE from traffic_mois_heur
 group by HOUR_VAL;
 
 
-create or replace view traffic_mois as select  MONTH_VAL,  sum(compte) as compte from traffic_mois_heur
+create or replace view traffic_mois as select  MONTH_VAL,  sum(COMPTE) as COMPTE from traffic_mois_heur
 group by MONTH_VAL;
 
