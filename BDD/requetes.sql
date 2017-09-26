@@ -48,8 +48,7 @@ select t1.ID_NA ID_NA, t1.DATE_E DATE_E, t1.DATE_S DATE_S, t1.NOM_E NOM_E, t1.NO
 from dist_NA t1
 join prix_NA t2 on t1.ID_NA = t2.ID_NA;
 
--- trajet_NA pour calculer le prix et la distance de tous les trajets NA, a utiliser par le prestataire, pour voir l'ensemble des
---trajest effectués par le non_aabonnés
+-- trajet_NA pour calculer le prix et la distance de tous les trajets NA, a utiliser par le prestataire, pour voir l'ensemble des trajest effectués par le non_aabonnés
 
 create view trajet_NA as
 SELECT f.DATE_E DATE_E, f.DATE_S DATE_S, f.NOM_E NOM_E, f.NOM_S NOM_S, f.DISTANCE DISTANCE, f.PRIX PRIX, p.NOM PAY
