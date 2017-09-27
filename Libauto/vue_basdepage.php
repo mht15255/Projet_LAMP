@@ -1,4 +1,3 @@
-
 <!-- Bas de page -->
     <div id="bas_de_page">
       <div align="center">
