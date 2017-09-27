@@ -3,9 +3,10 @@
 // $passm='';
 // include('vue_header_prest.php');
 // include('model_con.php');
-$traffic=new Traffic($usrm,$passm);
-$data=$traffic->read_list();
-$datamax=$traffic->hpointe();
+$traffic=new Traffic($usrm,$passm);//instancier la classe traffic pour chercher le bilan des traffic de la BDD
+$data=$traffic->read_list();//lire toute la table traffic
+$datamax=$traffic->hpointe();//calculer l'heure du pointe
+
 echo '
 <div class="row">
   <div class="col-md-4">
@@ -18,7 +19,7 @@ echo '
     <div class="col-md-4">
     </div>
 </div>';
-if(!empty($data))
+if(!empty($data))//si le table n'est pas vide,afficher les donner dans un format tableau
 {
 echo '<table class="table">
 <thead>
@@ -35,9 +36,7 @@ foreach($data as $ind => $var)
 echo '<tr>';
      echo '<th scope="row">' . $var['MONTH_VAL'] . '</th>';
      echo '<th>' . $var['HOUR_VAL'] . '</th>';
-     echo '<th>' . $var['compte'] . '</th>';
-
-
+     echo '<th>' . $var['COMPTE'] . '</th>';
 $i=$i+1;
 }
 echo '</tr>';
@@ -49,7 +48,7 @@ echo '<tr><th scope="row">passage pendant l\'heure du pointe:</th>
 <th scope="row">' . $datamax[1]['compte'] . '</th>
 </tr>';
 }
-else
+else//si la table est vide, afficher une message "Pas encore de traffics!"
 {
   echo '<h1>Pas encore de traffics!</h1>';
 }

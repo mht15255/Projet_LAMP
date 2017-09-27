@@ -1,3 +1,4 @@
+<!-- code html si conc est connecté, affiche un lien cliquable Déconnexion pour se déconnecter, et un lien Afficher le bilan du traffic pour afficher le bilan de trafic-->
 <div class="container-fluid">
   <ul class="nav nav-justified">
 
