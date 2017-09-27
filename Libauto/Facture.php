@@ -1,8 +1,8 @@
 <?php
 /**
- * Classe de des fonctionnalité utilisé par les abonnés
+ * Classe de fonctionnalités utilisées par les abonnés
  *
- * Elle comporte plusieurs fonctions : construct, verify_abonne, get_abonne, add_abonne, uptade_abonne, redirect, logout
+ * Elle comporte plusieurs fonctions : construct, get_facture
  *
  * world
  *
