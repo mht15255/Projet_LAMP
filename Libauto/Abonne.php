@@ -117,7 +117,6 @@ if (!class_exists('Abonne'))
         public function update_abonne($NB_BADGE, $att, $val)
           {
             $sql = ('UPDATE abonne_tp SET  '. $att .'="'.$val. '" WHERE NB_BADGE ='.$NB_BADGE);
-            echo $sql ;
             // on utilise l'atribut $mysqli pour récupérer la connexion à la base de données
             // au moyen de la méta-variable "$this" utilisée comme suit : $this->mysqli$result = $this->mysqli->query($sql);
             $result = $this->mysqli->query($sql);
