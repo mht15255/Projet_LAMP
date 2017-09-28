@@ -208,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `gestionnaire` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `gestionnaire` (`NOM`, `PASS`) VALUES
-('Consessionnaire', 'password'),
+('concessionnaire', 'password'),
 ('prestataire', 'password');
 
 create or replace view dist_TP as
