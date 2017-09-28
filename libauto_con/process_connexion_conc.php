@@ -9,7 +9,7 @@ if(isset($_POST['pass']))//si le mdp est dans post tester s'il est bon, sinon al
 {
   $pass=$_POST['pass'];
   $gestionn=new Gestionnaire($usrm,$passm);
-  $T=$gestionn->verify_gest('consessionnaire',$pass);
+  $T=$gestionn->verify_gest('concessionnaire',$pass);
   if($T)
   {
   include('home_page_connecte_conc.php');
