@@ -40,12 +40,12 @@ INSERT INTO `es` (`NOM`, `ID_ES`, `DIST_TRON`) VALUES
 ('Montpellier', 1, 23),
 ('La Grande Motte', 2, 17),
 ('Lunel', 3, 34),
-('Nîmes', 4, 44),
+('Nimes', 4, 44),
 ('Avignon', 5, 21),
 ('Orange', 6, 12),
 ('Mornas', 7, 13),
-('Bollène', 8, 33),
-('Montélimar', 9, 25),
+('Bollene', 8, 33),
+('Montelimar', 9, 25),
 ('Valence', 10, 47);
 
 
@@ -268,7 +268,7 @@ JOIN type_pay p ON ( f.ID_PAY = p.ID_PAY );
 
 
 create or replace view trajet_TP as
-SELECT f.DATE_E DATE_E, f.DATE_S DATE_S, f.NOM_E NOM_E, f.NOM_S NOM_S, f.DISTANCE DISTANCE, f.PRIX PRIX, 'Télépéage' PAY
+SELECT f.DATE_E DATE_E, f.DATE_S DATE_S, f.NOM_E NOM_E, f.NOM_S NOM_S, f.DISTANCE DISTANCE, f.PRIX PRIX, 'Abonnement' PAY
 FROM facture_TP f;
 
 create or replace view facture as
