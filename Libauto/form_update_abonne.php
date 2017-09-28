@@ -1,5 +1,5 @@
 <?php
-include('vue_header_deconnecte.php');//  template header html
+include('vue_header_connecte.php');//  template header html
 include('Abonne.php');//contient la fonction is_session_started()
 
 if ( is_session_started() === FALSE ) session_start(); //démarrage d'une session si elle n'est pas deja demarre
