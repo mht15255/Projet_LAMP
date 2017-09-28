@@ -26,7 +26,7 @@ if ( is_session_started() === FALSE ) session_start();//démarrage d'une session
   <!-- Menu -->
   <div class="container-fluid">
     <ul class="nav nav-justified">
-      <li class="active"><a href="index.php"><i class="glyphicon glyphicon-home"> </i> Acceuil </a></li>
+      <li class="active"><a href="index.php"><i class="glyphicon glyphicon-home"> </i> Accueil </a></li>
       <li><a href="form_connexion.php"><i class="glyphicon glyphicon-off"></i> Connexion </a></li>
       <li class="active"><a href="form_inscription.php"><i class="glyphicon glyphicon-edit"> </i> Inscription </a></li>
     </ul>
