@@ -26,7 +26,7 @@ if ( is_session_started() === FALSE ) session_start(); //démarrage d'une sessio
   <!-- Menu -->
   <div class="container-fluid">
     <ul class="nav nav-justified">
-      <li class="active"><a href="index.php"><i class="glyphicon glyphicon-home"></i> Acceuil </a></li>
+      <li class="active"><a href="index.php"><i class="glyphicon glyphicon-home"></i> Accueil </a></li>
       <li class="active"><a href="vue_mon_compte.php"><i class="glyphicon glyphicon-user"></i> Mon compte </a></li>
       <li class="active"><a href="process_facture.php"><i class="glyphicon glyphicon-road"></i> Trajets et factures </a></li>
       <li><p><a href="index.php?connexion=demande_deconnexion"><i class="glyphicon glyphicon-off"></i> Déconnexion </a></p></li>
