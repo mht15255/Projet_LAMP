@@ -1,7 +1,7 @@
 <?php include('vue_header_deconnecte.php');//  template header html?>
 <div class="container">
   <h2 class="form-signin-heading"> Abonnez vous</h2>
-  <p>Abonnez vous en quelques clics sur <spam class="T1"> Libauto </spam>et profitez de plus de libérté. Finie la queue au péage, le badge Libauto vous simplifie la vie et rend vos déplacements plus confortables, plus rapides et plus simples. </p>
+  <p>Abonnez vous en quelques clics sur <spam class="T1"> Libauto </spam>et profitez de plus de libérté. Fini la queue au péage, le badge Libauto vous simplifie la vie et rend vos déplacements plus confortables, plus rapides et plus simples. </p>
 <!-- formulaire d'inscription avec la methode post -->
   <form action="process_add_abonne.php" class="form-signin" method="POST">
     <div class="row">
