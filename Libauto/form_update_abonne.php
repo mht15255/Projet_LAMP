@@ -11,7 +11,6 @@ $_SESSION['MODIF'] = $_GET['modif'];
 //récupération dans la session de la variable à modifier
 $value = $_SESSION[$var_modif];
 
-var_dump($_SESSION);
 echo'
 <div class="container">
   <h4 class="form-signin-heading">Modification de vos données personnelles</h4>
